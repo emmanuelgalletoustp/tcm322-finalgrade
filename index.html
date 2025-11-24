@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCM 322 - Project Management | Grading System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TCM 322 - Project Management Grade Computation Page</h1>
+            <h2>Final Grade - Lecture 100%</h2>
+        </header>
+
+        <div class="calculator-wrapper">
+            <form id="gradeForm">
+                <!-- Midterm Grade Input -->
+                <div class="category-section" style="margin-bottom: 15px;">
+                    <h3 class="category-header">Midterm Grade</h3>
+                    <div class="table-container">
+                        <table class="grade-table">
+                            <thead>
+                                <tr>
+                                    <th>Midterm Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input type="number" id="midterm-grade" name="midterm-grade" min="0" max="5" step="0.01" value="0" class="table-input">
+                                        <span class="max-label">Enter your midterm grade (e.g., 1.00, 1.25, etc.)</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="side-by-side-container">
+                    <!-- Class Standing Performance Items (10%) -->
+                    <div class="category-section">
+                        <h3 class="category-header">Class Standing Performance Items (10%)</h3>
+                        <div class="table-container">
+                            <table class="grade-table">
+                                <thead>
+                                    <tr>
+                                        <th>Assignment Total</th>
+                                        <th>Activity and Recitation</th>
+                                        <th>Attendance</th>
+                                        <th>Total Score (SRC)</th>
+                                        <th>CPA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="number" id="assignment-total" name="assignment-total" min="0" max="40" step="0.01" value="0" class="table-input">
+                                            <span class="max-label">Max: 40</span>
+                                        </td>
+                                        <td>
+                                            <input type="number" id="activity-recitation" name="activity-recitation" min="0" max="50" step="0.01" value="0" class="table-input">
+                                            <span class="max-label">Max: 50</span>
+                                        </td>
+                                        <td>
+                                            <input type="number" id="attendance" name="attendance" min="0" max="10" step="0.01" value="0" class="table-input">
+                                            <span class="max-label">Max: 10</span>
+                                        </td>
+                                        <td class="result-cell">
+                                            <span id="src-total">0</span> / 100
+                                        </td>
+                                        <td class="result-cell">
+                                            <span id="cpa-percent">0%</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Quiz/Pre-final Performance Item (40%) -->
+                    <div class="category-section">
+                        <h3 class="category-header">Quiz/Pre-final Performance Item (40%)</h3>
+                        <div class="table-container">
+                            <table class="grade-table">
+                                <thead>
+                                    <tr>
+                                        <th>Quiz Total</th>
+                                        <th>Pre-Finals Exam</th>
+                                        <th>Total Score (SRQ)</th>
+                                        <th>QA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="number" id="quiz-total" name="quiz-total" min="0" max="50" step="0.01" value="0" class="table-input">
+                                            <span class="max-label">Max: 50</span>
+                                        </td>
+                                        <td>
+                                            <input type="number" id="prefinals-exam" name="prefinals-exam" min="0" max="50" step="0.01" value="0" class="table-input">
+                                            <span class="max-label">Max: 50</span>
+                                        </td>
+                                        <td class="result-cell">
+                                            <span id="srq-total">0</span> / 100
+                                        </td>
+                                        <td class="result-cell">
+                                            <span id="qa-percent">0%</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="side-by-side-container">
+                    <!-- Final Exam (30%) -->
+                    <div class="category-section">
+                        <h3 class="category-header">Final Exam (30%)</h3>
+                        <div class="table-container">
+                            <table class="grade-table">
+                                <thead>
+                                    <tr>
+                                        <th>Fin Written Exam</th>
+                                        <th>F</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="number" id="final-exam" name="final-exam" min="0" max="100" step="0.01" value="0" class="table-input">
+                                            <span class="max-label">Max: 100</span>
+                                        </td>
+                                        <td class="result-cell">
+                                            <span id="f-percent">0%</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Per Inno Task (20%) -->
+                    <div class="category-section">
+                        <h3 class="category-header">Per Inno Task (20%)</h3>
+                        <div class="table-container">
+                            <table class="grade-table">
+                                <thead>
+                                    <tr>
+                                        <th>PIT1</th>
+                                        <th>PIT2</th>
+                                        <th>Total Score (PIT)</th>
+                                        <th>PIT %</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input type="number" id="pt1" name="pt1" min="0" max="50" step="0.01" value="0" class="table-input">
+                                            <span class="max-label">Max: 50</span>
+                                        </td>
+                                        <td>
+                                            <input type="number" id="pt2" name="pt2" min="0" max="50" step="0.01" value="0" class="table-input">
+                                            <span class="max-label">Max: 50</span>
+                                        </td>
+                                        <td class="result-cell">
+                                            <span id="pit-total">0</span> / 100
+                                        </td>
+                                        <td class="result-cell">
+                                            <span id="pit-percent">0%</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compute Button -->
+                <div class="button-container">
+                    <button type="button" id="compute-button" class="compute-button">Compute my Grade</button>
+                    <button type="button" id="reset-button" class="reset-button" style="display: none;">Reset</button>
+                </div>
+
+                <!-- Lecture (Final Grade Calculation) -->
+                <div class="results-section" id="results-section" style="display: none;">
+                    <h3 class="results-header">Lecture</h3>
+                    <div class="table-container">
+                        <table class="grade-table">
+                            <thead>
+                                <tr>
+                                    <th>FGA</th>
+                                    <th>Fin Lec Grade Point</th>
+                                    <th>Final Grade Point</th>
+                                    <th class="final-period-grade-header">Final Period Grade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="result-cell">
+                                        <span id="fga-percent">-</span>
+                                    </td>
+                                    <td class="result-cell highlight">
+                                        <span id="fin-lec-grade-point">-</span>
+                                    </td>
+                                    <td class="result-cell highlight">
+                                        <span id="final-grade-point">-</span>
+                                    </td>
+                                    <td class="result-cell final-period-grade-highlight">
+                                        <span id="final-period-grade">-</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Computed Final Grade -->
+                <div class="results-section" id="computed-final-section" style="display: none;">
+                    <h3 class="results-header">Computed Final Grade</h3>
+                    <div class="table-container">
+                        <table class="grade-table">
+                            <thead>
+                                <tr>
+                                    <th>1/2 MTG + 1/2 FTG</th>
+                                    <th>1/2 MTG + 1/2 FTG (Final Grade)</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="result-cell">
+                                        <span id="computed-final-grade">-</span>
+                                    </td>
+                                    <td class="result-cell computed-final-highlight">
+                                        <span id="computed-final-after-removal">-</span>
+                                    </td>
+                                    <td class="result-cell">
+                                        <span id="final-description">-</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>
+            
+            <!-- Grading Scale Note -->
+            <div id="grading-note" class="grading-note">
+                <h4>Grading Scale Reference:</h4>
+                <div class="grading-scale">
+                    <div class="grade-item" data-grade="1.00"><span class="grade-value">1.00</span> = 97-100% <span class="grade-desc">(Excellent)</span> — <span class="grade-color green">Green range</span></div>
+                    <div class="grade-item" data-grade="1.25"><span class="grade-value">1.25</span> = 94-96%</div>
+                    <div class="grade-item" data-grade="1.50"><span class="grade-value">1.50</span> = 91-93% <span class="grade-desc">(Very Good)</span></div>
+                    <div class="grade-item" data-grade="1.75"><span class="grade-value">1.75</span> = 88-90%</div>
+                    <div class="grade-item" data-grade="2.00"><span class="grade-value">2.00</span> = 85-87% <span class="grade-desc">(Above Average)</span></div>
+                    <div class="grade-item" data-grade="2.25"><span class="grade-value">2.25</span> = 82-84%</div>
+                    <div class="grade-item" data-grade="2.50"><span class="grade-value">2.50</span> = 79-81% <span class="grade-desc">(Average)</span></div>
+                    <div class="grade-item" data-grade="2.75"><span class="grade-value">2.75</span> = 76-78%</div>
+                    <div class="grade-item" data-grade="3.00"><span class="grade-value">3.00</span> = 75% <span class="grade-desc">(Passing)</span> — <span class="grade-color green">End of green range</span></div>
+                    <div class="grade-item" data-grade="3.25"><span class="grade-value">3.25</span> = 72-74% <span class="grade-desc">(Conditional)</span> — <span class="grade-color red">Start of red range</span></div>
+                    <div class="grade-item" data-grade="3.50"><span class="grade-value">3.50</span> = 69-71% <span class="grade-desc">(Conditional)</span></div>
+                    <div class="grade-item" data-grade="3.75"><span class="grade-value">3.75</span> = 66-68% <span class="grade-desc">(Failed)</span></div>
+                    <div class="grade-item" data-grade="4.00"><span class="grade-value">4.00</span> = 65% <span class="grade-desc">(Failed)</span></div>
+                    <div class="grade-item" data-grade="5.00"><span class="grade-value">5.00</span> = 64-below% <span class="grade-desc">(Failed)</span></div>
+                </div>
+            </div>
+            
+            <!-- Notes Section -->
+            <div class="notes-section">
+                <h4>Notes:</h4>
+                <div class="external-links">
+                    <a href="https://docs.google.com/spreadsheets/d/1aYKBdkS-ZhE3m6MvrUSUAa6ALhTzPp63/edit?fbclid=IwAR2jyRjP5XmGoqRemplIHiCFFqT-TMUNDLZG-yYkUhUX-QaNiOWKUJwJAt0#gid=434719583" target="_blank" class="external-link">Compute using e-Class Record from CiTL</a>
+                    <a href="https://prisms.ustp.edu.ph/auth/login" target="_blank" class="external-link">Check your grade on PRISM</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
